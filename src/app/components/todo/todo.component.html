@@ -1,0 +1,105 @@
+<br>
+<div class="container">
+    <div class="tittle">
+        <h1>Gift List</h1>
+    </div>
+    <form [formGroup]="todoForm" (ngSubmit)="submitTodoForm()">
+        <div class="row">
+            <!-- DIVISION FOR TITTLE -->
+            <div class="col-6 direccion">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" formControlName="title" required>
+                <div
+                    *ngIf="todoForm.get('title')?.invalid && (todoForm.get('title')?.dirty || todoForm.get('title')?.touched)">
+                </div>
+            </div>
+            <!-- DIVISION FOR PRICE -->
+            <div class="col-6 direccion">
+                <label for="price">price:</label>
+                <input type="number" id="price" name="price" formControlName="price" required>
+                <div
+                    *ngIf="todoForm.get('price')?.invalid && (todoForm.get('price')?.dirty || todoForm.get('price')?.touched)">
+                </div>
+            </div>
+            <!-- DIVISION FOR DESCRIPTION -->
+            <div class="direccion col-12">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" formControlName="description" required></textarea>
+                <div
+                    *ngIf="todoForm.get('description')?.invalid && (todoForm.get('description')?.dirty || todoForm.get('description')?.touched)">
+                </div>
+            </div>
+            <!-- DIVISION FOR SELECT -->
+            <div class="col-6">
+                <select formControlName="type" #selectElement (change)="onSelectChange(selectElement.value)"
+                    class="form-select" aria-label="Default select example">
+                    <option selected>How many people</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <!-- DIVISION FOR SELECTOR -->
+            <div class="col-6 direccion">
+                <label for="favcolor">Select your favorite color:</label>
+                <input formControlName="color" type="color" id="favcolor" name="color" value="#ff0000">
+            </div>
+            <!-- DIVISION FOR CHECKBOX -->
+            <div class="col-12">
+                <div class="form-check">
+                    <input formControlName="gift" class="form-check-input" type="checkbox" value="gift"
+                        id="flexCheckIndeterminate">
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                        Gift
+                    </label>
+                </div>
+            </div>
+
+            <!-- DIVISION FOR BUTTONS -->
+            <div class="center">
+                <div>
+                    <button type="submit" class="button" [disabled]="todoForm.invalid">{{ isEditing ? 'Update List' :
+                        'Add
+                        List'
+                        }}</button>
+                </div>
+                <div>
+                    <button type="button" class="button" *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- ITEMS LIST -->
+    <div class="border_top">
+        <table>
+            <div class="row space">
+                <div class="col-12">
+                    <tr class="col-4">
+                        <th class="col-2">Title</th>
+                        <th class="col-2">Price</th>
+                        <th class="col-2">Description</th>
+                        <th class="col-2">People</th>
+                        <th class="col-2">color</th>
+                        <th class="col-2">gift</th>
+                    </tr>
+                </div>
+                <div class="col-12">
+                    <tr *ngFor="let todo of todos">
+                        <td class="col-2">{{ todo.title }}</td>
+                        <td class="col-2">{{ todo.price }}</td>
+                        <td class="col-2">{{ todo.description }}</td>
+                        <td class="col-2">{{ todo.type }}</td>
+                        <td class="col-2">{{ todo.color }}</td>
+                        <td class="col-2">{{ todo.gift}}</td>
+
+                        <td class="gap">
+                            <button class="button" (click)="editTodo(todo)">Edit</button>
+                            <button class="button" (click)="deleteTodo(todo)">Delete</button>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </table>
+    </div>
+</div>
+<br>

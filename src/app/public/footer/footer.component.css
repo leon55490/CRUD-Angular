@@ -1,0 +1,12 @@
+.copy {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #a8a8a8;
+}
+
+.footer_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

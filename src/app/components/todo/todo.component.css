@@ -1,0 +1,32 @@
+.container {
+  border-radius: 15px;
+  border: 2px solid #0f435f;
+  width: 70%;
+  padding: 30px;
+}
+
+.direccion {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  gap: 20px;
+}
+.gap {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.border_top {
+  border-top: 2px solid #0f435f;
+}
+
+.space {
+  padding-top: 20px;
+}
