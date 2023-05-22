@@ -8,20 +8,26 @@
         <form [formGroup]="fGroup" class="login-form">
             <!-- EMAIL LOGIN -->
             <div class="mb-3">
-                <label for="email" data-error="wrong" data-success="right" class="form-label">Email address</label>
-                <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
-                <div class="show-errors" *ngIf="obtenerFormGroup['email'].errors 
+                <label for="email" data-error="wrong" data-success="right"
+                    class="form-label">Email address</label>
+                <input formControlName="email" type="email" class="form-control"
+                    id="email" aria-describedby="email">
+                <div class="show-errors"
+                    *ngIf="obtenerFormGroup['email'].errors 
         && (obtenerFormGroup['email'].dirty || obtenerFormGroup['email'].touched)">
-                    <strong>Este campo es obligatorio y debe tener el formato de correo electrónico</strong>
+                    <strong>This field is required and must have the email
+                        format</strong>
                 </div>
             </div>
             <!-- PASSWORD LOGIN -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input formControlName="password" type="password" class="form-control" id="password">
-                <div class="show-errors" *ngIf="obtenerFormGroup['password'].errors 
+                <input formControlName="password" type="password"
+                    class="form-control" id="password">
+                <div class="show-errors"
+                    *ngIf="obtenerFormGroup['password'].errors 
             && (obtenerFormGroup['password'].dirty || obtenerFormGroup['password'].touched)">
-                    <strong>Este campo es obligatorio</strong>
+                    <strong>This field is required</strong>
                 </div>
             </div>
             <!-- LOGIN BUTTON -->
